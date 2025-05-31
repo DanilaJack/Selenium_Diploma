@@ -36,6 +36,13 @@ jobs:
         env:
           SELENIUM_REMOTE_URL: http://localhost:4444/wd/hub
 
+      - name: Debug - check Allure report contents
+        run: |
+          echo "Listing contents of build/allure-report"
+          ls -l build/allure-report
+          echo "Checking for index.html"
+          test -f build/allure-report/index.html && echo "✅ index.html found" || echo "❌ index.html NOT FOUND"
+
       - name: Deploy Allure Report to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
