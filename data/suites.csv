@@ -1,0 +1,2 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Sat May 31 11:12:15 UTC 2025","Sat May 31 11:12:17 UTC 2025","1868","Gradle suite","Gradle test","ui.tests.Scenario_2_8","ui.tests.Scenario_2_8","businessScenario","businessScenario",""
