@@ -1,0 +1,18 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="GeneralSuite">
+
+    <parameter name="browser" value="yandex"/>
+    <parameter name="timeout" value="1"/>
+    <parameter name="headless" value="false"/>
+    <parameter name="maximized" value="true"/>
+    <parameter name="baseUrl" value="https://app.%s.ggis.iccdev.ru"/>
+    <parameter name="stand" value="stage"/>
+
+    <test name="testsMadeByBashlyk">
+        <classes>
+            <class name="ui.tests.Scenario_2_8"/>
+        </classes>
+    </test>
+
+</suite>

@@ -1,0 +1,24 @@
+[versions]
+restassured = "5.5.0"
+testng = "7.10.2"
+allure = "2.28.0"
+gson = "2.11.0"
+lombok = "1.18.36"
+selenium = "4.28.0"
+selenide = "7.7.0"
+ashot = "1.5.4"
+
+[libraries]
+restassured = {module = "io.rest-assured:rest-assured", version.ref = "restassured"}
+gson = {module = "com.google.code.gson:gson", version.ref = "gson"}
+testng = {module = "org.testng:testng", version.ref = "testng"}
+lombok = {module = "org.projectlombok:lombok", version.ref = "lombok"}
+allure-restassured = {module = "io.qameta.allure:allure-rest-assured", version.ref = "allure"}
+allure-java = { module = "io.qameta.allure:allure-java-commons", version.ref = "allure"}
+allure-commandline = { module = "io.qameta.allure:allure-commandline", version.ref = "allure"}
+selenium = {module = "org.seleniumhq.selenium:selenium-java", version.ref = "selenium"}
+selenide = {module = "com.codeborne:selenide", version.ref = "selenide"}
+ashot = {module = "ru.yandex.qatools.ashot:ashot", version.ref = "ashot"}
+
+[plugins]
+allure = {id = "io.qameta.allure", version = "2.12.0"}

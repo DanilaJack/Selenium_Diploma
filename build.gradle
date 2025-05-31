@@ -1,0 +1,45 @@
+plugins {
+    id 'java'
+    alias(libs.plugins.allure)
+}
+
+group = 'org.ggis.com'
+version = '1.0.1'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+    implementation(
+            libs.gson,
+            libs.lombok,
+            libs.allure.commandline,
+            libs.allure.java
+    )
+
+    testImplementation(
+            libs.testng,
+            libs.restassured,
+            libs.allure.restassured,
+            libs.selenium,
+            libs.selenide,
+            libs.ashot
+    )
+
+    testAnnotationProcessor(
+            libs.lombok
+    )
+
+}
+
+test {
+    useTestNG()
+//    useTestNG() {
+//        suites "src/test/resources/bashlykTests.xml"
+//    }
+}
+
+compileJava.options.encoding = 'UTF-8'
+compileTestJava.options.encoding = 'UTF-8'
