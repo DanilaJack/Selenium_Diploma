@@ -14,6 +14,7 @@ import io.restassured.config.RestAssuredConfig;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.PageLoadStrategy;
 
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
@@ -42,8 +43,21 @@ public class TestBase {
 
     public void setUp() {
 
+//        Configuration.browser = "chrome";
+//        Configuration.headless = false; // true — если хочешь без GUI
+
+        String remoteUrl = System.getenv("SELENIUM_REMOTE_URL");
+
+        Configuration.remote = remoteUrl; // например, http://localhost:4444/wd/hub
         Configuration.browser = "chrome";
-        Configuration.headless = false; // true — если хочешь без GUI
+
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--no-sandbox", "--disable-dev-shm-usage");
+
+        // если нужен headless:
+        // options.addArguments("--headless");
+
+        Configuration.browserCapabilities = options;
 
 //        step("Конфигурация Selenium", () -> {
 //            Config.baseUrl = String.format(baseUrl, stand);
@@ -82,15 +96,15 @@ public class TestBase {
 //        $("#PanelMenu_Burger").shouldBe(Condition.clickable, Duration.ofSeconds(10));
     }
 
-    @AfterMethod
-    public void tearDown() {
-        takeScreenshot();
-        step("Потушить драйвер", WebDriverRunner.getWebDriver()::quit);
-    }
-
-    @Attachment(value = "Screenshot", type = "image/png")
-    public static byte[] takeScreenshot() {
-        return Selenide.screenshot(OutputType.BYTES);
-    }
+//    @AfterMethod
+//    public void tearDown() {
+//        takeScreenshot();
+//        step("Потушить драйвер", WebDriverRunner.getWebDriver()::quit);
+//    }
+//
+//    @Attachment(value = "Screenshot", type = "image/png")
+//    public static byte[] takeScreenshot() {
+//        return Selenide.screenshot(OutputType.BYTES);
+//    }
 
 }
