@@ -15,11 +15,11 @@ testng = {module = "org.testng:testng", version.ref = "testng"}
 lombok = {module = "org.projectlombok:lombok", version.ref = "lombok"}
 allure-restassured = {module = "io.qameta.allure:allure-rest-assured", version.ref = "allure"}
 allure-java = { module = "io.qameta.allure:allure-java-commons", version.ref = "allure"}
+allure-testng = {module = "io.qameta.allure:allure-testng", version.ref = "allure"}
 allure-commandline = { module = "io.qameta.allure:allure-commandline", version.ref = "allure"}
 selenium = {module = "org.seleniumhq.selenium:selenium-java", version.ref = "selenium"}
 selenide = {module = "com.codeborne:selenide", version.ref = "selenide"}
 ashot = {module = "ru.yandex.qatools.ashot:ashot", version.ref = "ashot"}
-allure-testng = { module = "io.qameta.allure:allure-testng", version.ref = "allure" }
 
 [plugins]
 allure = {id = "io.qameta.allure", version = "2.12.0"}
