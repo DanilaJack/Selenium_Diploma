@@ -33,6 +33,7 @@ dependencies {
             libs.testng,
             libs.restassured,
             libs.allure.restassured,
+            libs.allure.testng,
             libs.selenium,
             libs.selenide,
             libs.ashot

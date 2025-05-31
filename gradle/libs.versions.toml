@@ -19,6 +19,7 @@ allure-commandline = { module = "io.qameta.allure:allure-commandline", version.r
 selenium = {module = "org.seleniumhq.selenium:selenium-java", version.ref = "selenium"}
 selenide = {module = "com.codeborne:selenide", version.ref = "selenide"}
 ashot = {module = "ru.yandex.qatools.ashot:ashot", version.ref = "ashot"}
+allure-testng = { module = "io.qameta.allure:allure-testng", version.ref = "allure" }
 
 [plugins]
 allure = {id = "io.qameta.allure", version = "2.12.0"}
