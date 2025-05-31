@@ -1,5 +1,6 @@
 package ui.tests;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.Keys;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -20,6 +21,7 @@ import static utility.TxtFileProcessing.fileReaderIntoDoubleArray;
 public class Scenario_2_8 extends TestBase {
 
     @Test
+    @Step("Открыть страницу google.com")
     public void businessScenario() throws InterruptedException, IOException {
 
         open("https://google.com");

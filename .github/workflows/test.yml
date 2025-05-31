@@ -1,4 +1,4 @@
-name: Run Selenium Tests
+name: Run Selenium Tests with Allure and Publish Report
 
 on:
   push:
@@ -26,12 +26,21 @@ jobs:
         uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
-          java-version: '22'  # замени на свою версию
+          java-version: '22'
 
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
 
-      - name: Run tests
-        run: ./gradlew test
+      - name: Run tests and generate Allure report
+        run: ./gradlew clean test allureReport
         env:
           SELENIUM_REMOTE_URL: http://localhost:4444/wd/hub
+
+      - name: Deploy Allure Report to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build/allure-report
+          publish_branch: gh-pages
+          user_name: github-actions
+          user_email: github-actions@github.com

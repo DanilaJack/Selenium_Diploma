@@ -96,15 +96,15 @@ public class TestBase {
 //        $("#PanelMenu_Burger").shouldBe(Condition.clickable, Duration.ofSeconds(10));
     }
 
-//    @AfterMethod
-//    public void tearDown() {
-//        takeScreenshot();
-//        step("Потушить драйвер", WebDriverRunner.getWebDriver()::quit);
-//    }
-//
-//    @Attachment(value = "Screenshot", type = "image/png")
-//    public static byte[] takeScreenshot() {
-//        return Selenide.screenshot(OutputType.BYTES);
-//    }
+    @AfterMethod
+    public void tearDown() {
+        takeScreenshot();
+        step("Потушить драйвер", WebDriverRunner.getWebDriver()::quit);
+    }
+
+    @Attachment(value = "Screenshot", type = "image/png")
+    public static byte[] takeScreenshot() {
+        return Selenide.screenshot(OutputType.BYTES);
+    }
 
 }
