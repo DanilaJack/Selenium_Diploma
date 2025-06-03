@@ -176,6 +176,7 @@ public class Scenario_2_3 extends TestBase {
 //        page.navigation.movingByCoordBelow2(31452.5, 29425.3);
 //        page.navigation.mouseClick();
 
+
         page.scene
                 .rightMenu
                 .getProperties()
