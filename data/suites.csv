@@ -1,2 +1,2 @@
-"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
-"passed","Sat May 31 11:12:15 UTC 2025","Sat May 31 11:12:17 UTC 2025","1868","Gradle suite","Gradle test","ui.tests.Scenario_2_8","ui.tests.Scenario_2_8","businessScenario","businessScenario",""
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","63462","business_scenario_2_3","GeneralSuite","Tue Jun 03 05:56:40 UTC 2025","passed","Tue Jun 03 05:57:44 UTC 2025","ui.tests.Scenario_2_3","testsMadeByBashlyk","ui.tests.Scenario_2_3","business_scenario_2_3"
