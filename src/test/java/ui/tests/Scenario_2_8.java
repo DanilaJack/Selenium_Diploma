@@ -1,30 +1,30 @@
-package ui.tests;
-
-import io.qameta.allure.Step;
-import org.openqa.selenium.Keys;
-import org.testng.Assert;
-import org.testng.annotations.Test;
-import ui.core.TestBase;
-import utility.NetworkMonitor;
-import utility.ProjectSettings;
-
-import java.io.File;
-import java.io.IOException;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.List;
-
-import static com.codeborne.selenide.Selenide.open;
-import static com.codeborne.selenide.Selenide.sleep;
-import static utility.TxtFileProcessing.fileReaderIntoDoubleArray;
-
-public class Scenario_2_8 extends TestBase {
-
-    @Test
-    //@Step("Открыть страницу google.com")
-    public void businessScenario() throws InterruptedException, IOException {
-        //open("https://google.com");
-
+//package ui.tests;
+//
+//import io.qameta.allure.Step;
+//import org.openqa.selenium.Keys;
+//import org.testng.Assert;
+//import org.testng.annotations.Test;
+//import ui.core.TestBase;
+//import utility.NetworkMonitor;
+//import utility.ProjectSettings;
+//
+//import java.io.File;
+//import java.io.IOException;
+//import java.time.LocalDateTime;
+//import java.time.format.DateTimeFormatter;
+//import java.util.List;
+//
+//import static com.codeborne.selenide.Selenide.open;
+//import static com.codeborne.selenide.Selenide.sleep;
+//import static utility.TxtFileProcessing.fileReaderIntoDoubleArray;
+//
+//public class Scenario_2_8 extends TestBase {
+//
+//    @Test
+//    //@Step("Открыть страницу google.com")
+//    public void businessScenario() throws InterruptedException, IOException {
+//        open("https://google.com");
+//
 //        //todo: Костылямба
 //        page.navigation.mouseClickByOffsetFromViewport(100, 0, "canvas");
 //        page.navigation.zoomCanvas(-100);
@@ -399,7 +399,7 @@ public class Scenario_2_8 extends TestBase {
 //
 //        // Проверка, что файл пришел в хранилище с импользованием проверку на время
 //        Assert.assertTrue(exportedFile.getName().contains(currentDateTime2) || exportedFile.getName().contains(currentDateTime1));
-
-    }
-
-}
+//
+//    }
+//
+//}

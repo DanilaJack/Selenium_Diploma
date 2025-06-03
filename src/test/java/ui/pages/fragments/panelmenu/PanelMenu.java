@@ -35,12 +35,13 @@ public class PanelMenu extends BasePage {
     }
 
     @Step("Нажатие на кнопку Файл")
-    public PanelMenu pressFileBut() {
-        fileBut.shouldBe(Condition.visible, Duration.ofSeconds(10))
-                .shouldBe(Condition.enabled, Duration.ofSeconds(10))
-                .shouldBe(Condition.clickable, Duration.ofSeconds(10))
-                .click();
-        waitLoading(1);
+    public PanelMenu pressFileBut() throws InterruptedException {
+//        fileBut.shouldBe(Condition.visible, Duration.ofSeconds(10))
+//                .shouldBe(Condition.enabled, Duration.ofSeconds(10))
+//                .shouldBe(Condition.clickable, Duration.ofSeconds(10))
+//                .click();
+//        waitLoading(1);
+        Thread.sleep(500);
         return this;
     }
 

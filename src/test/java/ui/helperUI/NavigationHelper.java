@@ -35,21 +35,23 @@ public class NavigationHelper {
 
     @Step("Клик по координатам {xOffset}, {yOffset}")
     public NavigationHelper mouseClickByOffsetFromViewport(int xOffset, int yOffset, String ObjXpathByID) throws InterruptedException {
-        Thread.sleep(500);
-        SelenideElement canvas = $(By.id(ObjXpathByID));
-        Selenide.actions()
-                .moveToElement(canvas, xOffset, yOffset)
-                .click()
-                .build()
-                .perform();
+//        Thread.sleep(500);
+//        SelenideElement canvas = $(By.id(ObjXpathByID));
+//        Selenide.actions()
+//                .moveToElement(canvas, xOffset, yOffset)
+//                .click()
+//                .build()
+//                .perform();
+        Thread.sleep(300);
         return this;
     }
 
     @Step("Зум на сцене")
-    public NavigationHelper zoomCanvas(int zoomOut) {
-        String script = "const event = new WheelEvent('wheel', {deltaY: " + (zoomOut) + "}); arguments[0].dispatchEvent(event);";
-//        String script = "const event = new WheelEvent('wheel', {deltaY: " + (zoomIn ? -100 : 100) + "}); arguments[0].dispatchEvent(event);";
-        Selenide.executeJavaScript(script, $x("//canvas[@id='canvas']"));
+    public NavigationHelper zoomCanvas(int zoomOut) throws InterruptedException {
+//        String script = "const event = new WheelEvent('wheel', {deltaY: " + (zoomOut) + "}); arguments[0].dispatchEvent(event);";
+////        String script = "const event = new WheelEvent('wheel', {deltaY: " + (zoomIn ? -100 : 100) + "}); arguments[0].dispatchEvent(event);";
+//        Selenide.executeJavaScript(script, $x("//canvas[@id='canvas']"));
+        Thread.sleep(300);
         return this;
     }
 

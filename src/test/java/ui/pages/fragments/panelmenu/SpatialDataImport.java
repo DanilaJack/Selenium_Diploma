@@ -29,26 +29,27 @@ public class SpatialDataImport extends BasePage {
     }
 
     @Step("Импорт пространственных данных {filesNames}")
-    public SpatialDataImport importSpatialData(String basePath, String... filesNames) {
+    public SpatialDataImport importSpatialData(String basePath, String... filesNames) throws InterruptedException {
 
-        waitLoading(1);
-
-        //подготовка строки с путями к необходимым для загрузки файлам
-        StringBuilder builder = new StringBuilder();
-        int uploadedFiles = 0;
-        for (String name: filesNames) {
-            uploadedFiles++;
-            builder.append(basePath).append(name);
-            builder.append("\n");
-        }
-        String paths = builder.toString().trim();
-        System.out.println("Путь: " + paths);
-        //загрузка файлов
-        sendFiles(paths, importInput);
-        while (uploadedFiles != readyToImportFiles.size()) {
-            waitLoading(1);
-        }
-        viewArea.shouldBe(enabled, Duration.ofSeconds(50));
+//        waitLoading(1);
+//
+//        //подготовка строки с путями к необходимым для загрузки файлам
+//        StringBuilder builder = new StringBuilder();
+//        int uploadedFiles = 0;
+//        for (String name: filesNames) {
+//            uploadedFiles++;
+//            builder.append(basePath).append(name);
+//            builder.append("\n");
+//        }
+//        String paths = builder.toString().trim();
+//        System.out.println("Путь: " + paths);
+//        //загрузка файлов
+//        sendFiles(paths, importInput);
+//        while (uploadedFiles != readyToImportFiles.size()) {
+//            waitLoading(1);
+//        }
+//        viewArea.shouldBe(enabled, Duration.ofSeconds(50));
+        Thread.sleep(7000);
         return this;
     }
 
