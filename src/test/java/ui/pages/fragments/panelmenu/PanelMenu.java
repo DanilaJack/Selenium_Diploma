@@ -26,6 +26,8 @@ public class PanelMenu extends BasePage {
 
     private final SelenideElement exportFromCanvas = $x("//div[contains(@class, 'NavMenuContentItem_navContent') and text()='Экспорт объектов холста в *.dxf']");
 
+    private final SelenideElement saveSettingsBtn = $(By.id("save"));
+
 
     public PanelMenu(WebDriver driver) {
         super(driver);
@@ -57,6 +59,12 @@ public class PanelMenu extends BasePage {
     @Step("Нажать на экспорт объектов с холста")
     public PanelMenu pressExportFromCanvas(){
         exportFromCanvas.shouldBe(visible).click();
+        return this;
+    }
+
+    @Step("Нажать на кнопку 'Сохранить настройки сессии'")
+    public PanelMenu pressSaveSettings(){
+        saveSettingsBtn.shouldBe(visible).click();
         return this;
     }
 }

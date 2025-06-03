@@ -3,9 +3,7 @@ package ui.pages;
 import org.openqa.selenium.WebDriver;
 import ui.core.BasePage;
 import ui.helperUI.ParameterizedDesign;
-import ui.pages.fragments.ContextPanel;
-import ui.pages.fragments.LeftToolMenu;
-import ui.pages.fragments.ViewPanel;
+import ui.pages.fragments.*;
 import ui.pages.fragments.panelmenu.PanelMenu;
 import ui.pages.fragments.rightmenu.RightMenu;
 
@@ -17,6 +15,9 @@ public class ScenePage extends BasePage {
     public ViewPanel viewPanel;
     public ContextPanel contextPanel;
     public ParameterizedDesign parameterizedDesign;
+    public StatusLine statusLine;
+    public ContextMenu contextMenu;
+    public TableView tableView;
 
 
     public ScenePage(WebDriver driver) {
@@ -27,6 +28,9 @@ public class ScenePage extends BasePage {
         viewPanel = new ViewPanel(driver);
         contextPanel = new ContextPanel(driver);
         parameterizedDesign = new ParameterizedDesign(driver);
+        statusLine = new StatusLine(driver);
+        contextMenu = new ContextMenu(driver);
+        tableView = new TableView(driver);
     }
 
 }

@@ -7,6 +7,7 @@ lombok = "1.18.36"
 selenium = "4.28.0"
 selenide = "7.7.0"
 ashot = "1.5.4"
+poi-xml = "5.2.3"
 
 [libraries]
 restassured = {module = "io.rest-assured:rest-assured", version.ref = "restassured"}
@@ -20,6 +21,8 @@ allure-commandline = { module = "io.qameta.allure:allure-commandline", version.r
 selenium = {module = "org.seleniumhq.selenium:selenium-java", version.ref = "selenium"}
 selenide = {module = "com.codeborne:selenide", version.ref = "selenide"}
 ashot = {module = "ru.yandex.qatools.ashot:ashot", version.ref = "ashot"}
+poi = {module = "org.apache.poi:poi", version.ref = "poi-xml"}
+poi-ooxml = {module = "org.apache.poi:poi-ooxml", version.ref = "poi-xml"}
 
 [plugins]
 allure = {id = "io.qameta.allure", version = "2.12.0"}

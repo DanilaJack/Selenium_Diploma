@@ -21,10 +21,9 @@ import static utility.TxtFileProcessing.fileReaderIntoDoubleArray;
 public class Scenario_2_8 extends TestBase {
 
     @Test
-    @Step("Открыть страницу google.com")
+    //@Step("Открыть страницу google.com")
     public void businessScenario() throws InterruptedException, IOException {
-
-        open("https://google.com");
+        //open("https://google.com");
 
 //        //todo: Костылямба
 //        page.navigation.mouseClickByOffsetFromViewport(100, 0, "canvas");

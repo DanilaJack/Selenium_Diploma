@@ -6,8 +6,11 @@ import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 import ui.core.BasePage;
+import utility.NetworkMonitor;
 
+import java.net.MalformedURLException;
 import java.time.Duration;
 
 import static com.codeborne.selenide.Condition.*;
@@ -70,6 +73,43 @@ public class SpatialDataImport extends BasePage {
         $("[data-qa='mainLoader']").shouldBe(Condition.disappear, Duration.ofSeconds(20));
         $x("//div[contains(@class,'loadingFileContent')]").shouldBe(Condition.hidden, Duration.ofSeconds(60));
 
+        return this;
+    }
+
+    @Step("Нажатие на кнопку - Импортировать")
+    public SpatialDataImport pressImportButton(String url, int statusCode) throws MalformedURLException {
+        SelenideElement convertDataLoader = $x("//div[contains(@class, 'ProgressBarWrapper_loadingFileContent')]");
+        if (convertDataLoader.isDisplayed()){
+            convertDataLoader.should(disappear, Duration.ofSeconds(15));
+        }
+
+        NetworkMonitor.startMonitoring();
+        importBut.shouldBe(enabled, Duration.ofSeconds(5)).click();
+        waitLoading(2);
+
+        int status = NetworkMonitor.waitForResponse(url, statusCode);
+        System.out.println("NetworkMonitor : "+status);
+        Assert.assertEquals(status, statusCode);
+        NetworkMonitor.stopMonitoring();
+        $x("//span[text()='Каталог данных']").shouldNotBe(visible, Duration.ofSeconds(100));
+
+        $("[data-qa='mainLoader']").shouldBe(Condition.disappear, Duration.ofSeconds(20));
+        $("[data-qa='loaderSession']").shouldBe(Condition.disappear, Duration.ofSeconds(10));
+        $("#docMenu").shouldBe(Condition.clickable, Duration.ofSeconds(10));
+        return this;
+    }
+
+    // Способ сохранения объекта
+    @Step("Дописать в объект")
+    public SpatialDataImport selectAddToObject(){
+        $x("//div[contains(@class,'ImportSaveOptionBlock')]/label[2]").click();
+        return this;
+    }
+
+    @Step("Поле - Введите объект, при выборе - Дописать в объект")
+    public SpatialDataImport selectInputObject(String item){
+        $x("//div[contains(@class,'ImportSaveOptionBlock')]/span[contains(@class,'ImportSaveOptionBlock_input')]").click();
+        $x("//div[contains(@class,'ImportSelect_option') and text()='"+ item +"']").click();
         return this;
     }
 }

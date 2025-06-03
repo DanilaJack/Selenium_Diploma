@@ -204,4 +204,10 @@ public class RightMenu extends BasePage {
         return this;
     }
 
+    @Step("Открытие/Закрытие правой панели окон")
+    public RightMenu ClickPropertiesMenu() {
+        panelOfWindowsBut.shouldBe(visible, Duration.ofSeconds(5)).click();
+        return this;
+    }
+
 }

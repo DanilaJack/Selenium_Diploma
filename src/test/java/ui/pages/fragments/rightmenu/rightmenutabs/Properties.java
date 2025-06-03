@@ -1,5 +1,6 @@
 package ui.pages.fragments.rightmenu.rightmenutabs;
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
@@ -11,8 +12,7 @@ import ui.core.BasePage;
 import java.time.Duration;
 
 import static com.codeborne.selenide.Condition.*;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$x;
+import static com.codeborne.selenide.Selenide.*;
 
 public class Properties extends BasePage {
 
@@ -27,6 +27,8 @@ public class Properties extends BasePage {
     private final SelenideElement saveEditAttrBtn = $x("//button[contains(@class, 'PropertyMultiObject_saveBtn')]");
 
     private final String dropDownEl = "//div[contains(@class, 'ant-select-dropdown ') and not(contains(@class, 'ant-select-dropdown-hidden'))]";
+
+    private final String attributeValueInput = "//div[contains(@class, 'PropertyMultiObject_name')";
 
 
     public Properties(WebDriver driver) {
@@ -93,5 +95,25 @@ public class Properties extends BasePage {
         saveEditAttrBtn.click();
 
         return this;
+    }
+
+    @Step("Изменить значение атрибута - {attributeName}")
+    public Properties changeAttributeValue(String attributeName, String attributeValue) throws InterruptedException {
+        SelenideElement input = $(By.xpath(attributeValueInput + "and text()='" + attributeName + "']/../..//input"));
+
+        if (input.has(Condition.attribute("type")) && input.getAttribute("type").equals("checkbox")) {
+            actions().click(input).perform();
+        } else {
+            input.click();
+            clampingAndPressKeyboardButtons(Keys.CONTROL, "A");
+            pressKeyboardButton(Keys.BACK_SPACE);
+            input.sendKeys(attributeValue, Keys.ENTER);
+        }
+        return this;
+    }
+
+    @Step("Получить количество геометрических объектов внутри одного мультиобъекта")
+    public int getAamountOfGeoObjects(){
+        return Integer.parseInt($x("//span[contains(text(),'Свойства геометрических')]").getText().replaceAll("\\D+", ""));
     }
 }

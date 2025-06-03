@@ -11,7 +11,7 @@
 
     <test name="testsMadeByBashlyk">
         <classes>
-            <class name="ui.tests.Scenario_2_8"/>
+            <class name="ui.tests.Scenario_2_3"/>
         </classes>
     </test>
 

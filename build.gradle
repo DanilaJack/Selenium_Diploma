@@ -10,16 +10,6 @@ repositories {
     mavenCentral()
 }
 
-allure {
-    report {
-        version.set("2.28.0") // Или последняя доступная
-    }
-    adapter {
-        autoconfigure.set(true)
-        aspectjWeaver.set(true)
-    }
-}
-
 dependencies {
 
     implementation(
@@ -36,7 +26,9 @@ dependencies {
             libs.allure.testng,
             libs.selenium,
             libs.selenide,
-            libs.ashot
+            libs.ashot,
+            libs.poi,
+            libs.poi.ooxml
     )
 
     testAnnotationProcessor(
@@ -46,10 +38,10 @@ dependencies {
 }
 
 test {
-    useTestNG()
-//    useTestNG() {
-//        suites "src/test/resources/bashlykTests.xml"
-//    }
+   // useTestNG()
+    useTestNG() {
+        suites "src/test/resources/bashlykTests.xml"
+    }
 }
 
 compileJava.options.encoding = 'UTF-8'

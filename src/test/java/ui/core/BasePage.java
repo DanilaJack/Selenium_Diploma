@@ -104,6 +104,16 @@ public class BasePage {
         return this;
     }
 
+    @Step("Нажатие клавиши {bnt}")
+    public BasePage pressKeyboardButton(Keys modifierKey, String bnt) {
+        Selenide.actions()
+                .keyDown(modifierKey)        // Эмулируем нажатие модификатора (например, CTRL)
+                .sendKeys(bnt)               // Эмулируем нажатие самой клавиши
+                .keyUp(modifierKey)          // Отпускаем модификатор
+                .perform();
+        return this;
+    }
+
     @Step("Получение последнего загруженного (экспортированного) файла")
     public File getLatestDownloadedFile(String downloadDir){
 
@@ -120,6 +130,16 @@ public class BasePage {
             return latestFile;
         }
         return null;
+    }
+
+    @Step("Зажатие клавиши {clamping}, нажатие клавиши {press}")
+    public void clampingAndPressKeyboardButtons(Keys clamping, String press) throws InterruptedException {
+        Thread.sleep(500);
+        Selenide.actions()
+                .keyDown(clamping)
+                .sendKeys(press)
+                .keyUp(clamping)
+                .build().perform();
     }
 
 }

@@ -9,8 +9,9 @@ import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import ui.core.BasePage;
 
-import static com.codeborne.selenide.Condition.clickable;
-import static com.codeborne.selenide.Condition.interactable;
+import java.time.Duration;
+
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
 
 public class SceneObjects extends BasePage {
@@ -18,6 +19,8 @@ public class SceneObjects extends BasePage {
     private final ElementsCollection rolledElements = $$x("//div[@id='tree_on_stage']//div[contains(@class, 'FolderArrowNode_folderTitle')]");
     private final ElementsCollection allVisibleObjectsInTree = $$x("//div[@id='tree_on_stage']//p[contains(@class, 'Title_threeNodeItemText')]");
     private final SelenideElement panelOfObjects = $x("//div[@id='tree_on_stage']//div[contains(@class, 'TreeObjectsOnStage_tree')]");
+
+    private final SelenideElement focusSelectedObject = $(By.id("TreeObjectsOnStage_ButtonPanel_FocusOnSelect"));
 
 
     public SceneObjects(WebDriver driver) {
@@ -98,6 +101,12 @@ public class SceneObjects extends BasePage {
         SelenideElement folder = $x("//div[@id='tree_on_stage']//p[text()='"+nameFolder+"']/../div[contains(@class, 'FolderArrowNode_folderTitle')]");
         if (folder.exists())
             folder.click();
+        return this;
+    }
+
+    @Step("Сфокусироваться на выбранном объекте")
+    public SceneObjects clickFocusBut() {
+        focusSelectedObject.shouldBe(visible, Duration.ofSeconds(3)).click();
         return this;
     }
 }

@@ -18,6 +18,9 @@ public class ContextPanel extends BasePage {
 
     private final SelenideElement moveToCutViewBut = $(By.id("section_enter_view"));
 
+    private final SelenideElement enterToEditModeMO = $(By.id("panel_enterEditMode"));
+
+
 
     public ContextPanel(WebDriver driver) {
         super(driver);
@@ -34,6 +37,13 @@ public class ContextPanel extends BasePage {
     @Step("Перейти в разрез")
     public ContextPanel moveToCutView() {
         moveToCutViewBut.shouldBe(Condition.visible, Duration.ofSeconds(3)).click();
+        return this;
+    }
+
+    @Step("Войти в режим редактирование мультиобъекта")
+    public ContextPanel enterEditModeOfMO() {
+        waitLoading(1);
+        enterToEditModeMO.shouldBe(Condition.visible, Duration.ofSeconds(3)).click();
         return this;
     }
 }
