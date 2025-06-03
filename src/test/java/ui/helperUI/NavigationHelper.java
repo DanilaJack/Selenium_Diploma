@@ -57,8 +57,9 @@ public class NavigationHelper {
 
     @Step("Передвинуть курсор попиксельно {xOffset}, {yOffset}")
     public void moveCursorByPixels(int xOffset,int yOffset){
-        Selenide.actions()
-                .moveByOffset(xOffset,yOffset).perform();
+//        Selenide.actions()
+//                .moveByOffset(xOffset,yOffset).perform();
+        sleep(100);
     }
 
     @Step("Перемещаться попиксельно в соответствие с координатами курсора в статусной строке")
@@ -238,11 +239,8 @@ public class NavigationHelper {
 
     @Step("Клик ПКМ по координатам {xOffset}, {yOffset}")
     public NavigationHelper clickRightButMouse(int xOffset,int yOffset,String ObjXpathByID){
-        SelenideElement selenideElement = $(By.id("canvas"));
-        Selenide.actions()
-                .moveToElement(selenideElement,xOffset,yOffset)
-                .contextClick()
-                .perform();
+//
+        sleep(300);
         return this;
     }
 

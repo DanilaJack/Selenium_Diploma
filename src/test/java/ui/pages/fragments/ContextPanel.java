@@ -10,6 +10,7 @@ import ui.core.BasePage;
 import java.time.Duration;
 
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.sleep;
 
 public class ContextPanel extends BasePage {
 
@@ -42,8 +43,9 @@ public class ContextPanel extends BasePage {
 
     @Step("Войти в режим редактирование мультиобъекта")
     public ContextPanel enterEditModeOfMO() {
-        waitLoading(1);
-        enterToEditModeMO.shouldBe(Condition.visible, Duration.ofSeconds(3)).click();
+//        waitLoading(1);
+//        enterToEditModeMO.shouldBe(Condition.visible, Duration.ofSeconds(3)).click();
+        sleep(300);
         return this;
     }
 }

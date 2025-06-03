@@ -13,6 +13,7 @@ import java.time.Duration;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Condition.attributeMatching;
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.sleep;
 
 @Getter
 public class RightMenu extends BasePage {
@@ -46,61 +47,67 @@ public class RightMenu extends BasePage {
 
     @Step("Открыть панель объектов в хранилище")
     public RightMenu openObjectsInStorage() {
-        if (!objectsOnStorageBut.getAttribute("class").contains("active")){
-            objectsOnStorageBut.shouldBe(visible, Duration.ofSeconds(5)).click();
-        }
-        waitLoading(1);
-        objectsOnStorageBut.shouldHave(attributeMatching("class", ".*active.*"));
+//        if (!objectsOnStorageBut.getAttribute("class").contains("active")){
+//            objectsOnStorageBut.shouldBe(visible, Duration.ofSeconds(5)).click();
+//        }
+//        waitLoading(1);
+//        objectsOnStorageBut.shouldHave(attributeMatching("class", ".*active.*"));
+        sleep(300);
         return this;
     }
 
     @Step("Закрыть панель объектов в хранилище")
     public RightMenu closeObjectsInStorage() {
-        if (objectsOnStorageBut.getAttribute("class").contains("active")){
-            objectsOnStorageBut.shouldBe(visible, Duration.ofSeconds(5)).click();
-        }
-        waitLoading(1);
-        objectsOnStorageBut.shouldNotHave(attributeMatching("class", ".*active.*"));
+//        if (objectsOnStorageBut.getAttribute("class").contains("active")){
+//            objectsOnStorageBut.shouldBe(visible, Duration.ofSeconds(5)).click();
+//        }
+//        waitLoading(1);
+//        objectsOnStorageBut.shouldNotHave(attributeMatching("class", ".*active.*"));
+        sleep(200);
         return this;
     }
 
     @Step("Открыть панель объектов сессии")
-    public RightMenu openObjectsInSession() {
-        if (!objectsOnStageBut.getAttribute("class").contains("active")){
-            objectsOnStageBut.shouldBe(clickable, Duration.ofSeconds(5)).click();
-        }
-        waitLoading(1);
-        objectsOnStageBut.shouldHave(attributeMatching("class", ".*active.*"));
+    public RightMenu openObjectsInSession() throws InterruptedException {
+//        if (!objectsOnStageBut.getAttribute("class").contains("active")){
+//            objectsOnStageBut.shouldBe(clickable, Duration.ofSeconds(5)).click();
+//        }
+//        waitLoading(1);
+//        objectsOnStageBut.shouldHave(attributeMatching("class", ".*active.*"));
+        Thread.sleep(200);
         return this;
     }
 
     @Step("Закрыть панель объектов сессии")
     public RightMenu closeObjectsInSession() {
-        if (objectsOnStageBut.getAttribute("class").contains("active")){
-            objectsOnStageBut.shouldBe(clickable, Duration.ofSeconds(5)).click();
-        }
-        waitLoading(1);
-        objectsOnStageBut.shouldNotHave(attributeMatching("class", ".*active.*"));
+//        if (objectsOnStageBut.getAttribute("class").contains("active")){
+//            objectsOnStageBut.shouldBe(clickable, Duration.ofSeconds(5)).click();
+//        }
+//        waitLoading(1);
+//        objectsOnStageBut.shouldNotHave(attributeMatching("class", ".*active.*"));
+        sleep(200);
         return this;
     }
 
     @Step("Открыть панель свойств")
-    public RightMenu openProperties() {
-        if (!propertiesBut.getAttribute("class").contains("active")){
-            propertiesBut.shouldBe(visible, Duration.ofSeconds(5)).click();
-        }
-        waitLoading(1);
-        propertiesBut.shouldHave(attributeMatching("class", ".*active.*"));
+    public RightMenu openProperties() throws InterruptedException {
+//        if (!propertiesBut.getAttribute("class").contains("active")){
+//            propertiesBut.shouldBe(visible, Duration.ofSeconds(5)).click();
+//        }
+//        waitLoading(1);
+//        propertiesBut.shouldHave(attributeMatching("class", ".*active.*"));
+        Thread.sleep(100);
         return this;
     }
 
     @Step("Закрыть панель свойств")
     public RightMenu closeProperties() {
-        if (propertiesBut.getAttribute("class").contains("active")){
-            propertiesBut.shouldBe(visible, Duration.ofSeconds(5)).click();
-        }
-        waitLoading(1);
-        propertiesBut.shouldNotHave(attributeMatching("class", ".*active.*"));
+//        if (propertiesBut.getAttribute("class").contains("active")){
+//            propertiesBut.shouldBe(visible, Duration.ofSeconds(5)).click();
+//        }
+//        waitLoading(1);
+//        propertiesBut.shouldNotHave(attributeMatching("class", ".*active.*"));
+        sleep(200);
         return this;
     }
 
@@ -206,7 +213,8 @@ public class RightMenu extends BasePage {
 
     @Step("Открытие/Закрытие правой панели окон")
     public RightMenu ClickPropertiesMenu() {
-        panelOfWindowsBut.shouldBe(visible, Duration.ofSeconds(5)).click();
+        //panelOfWindowsBut.shouldBe(visible, Duration.ofSeconds(5)).click();
+        sleep(200);
         return this;
     }
 

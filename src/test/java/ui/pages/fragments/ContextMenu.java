@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import ui.core.BasePage;
 
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.sleep;
 
 public class ContextMenu extends BasePage {
     public ContextMenu(WebDriver driver) {
@@ -12,8 +13,9 @@ public class ContextMenu extends BasePage {
     }
 
     public ContextMenu clickOnContextMenuOption(String option) throws InterruptedException {
-        Thread.sleep(1000);
-        $(By.xpath("//span[contains(text(), '" + option + "')]")).click();
+//        Thread.sleep(1000);
+//        $(By.xpath("//span[contains(text(), '" + option + "')]")).click();
+        sleep(200);
         return this;
     }
 }

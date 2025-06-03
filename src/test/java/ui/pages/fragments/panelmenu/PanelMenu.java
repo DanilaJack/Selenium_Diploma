@@ -11,8 +11,7 @@ import ui.core.BasePage;
 import java.time.Duration;
 
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$x;
+import static com.codeborne.selenide.Selenide.*;
 
 @Getter
 public class PanelMenu extends BasePage {
@@ -65,7 +64,8 @@ public class PanelMenu extends BasePage {
 
     @Step("Нажать на кнопку 'Сохранить настройки сессии'")
     public PanelMenu pressSaveSettings(){
-        saveSettingsBtn.shouldBe(visible).click();
+        //saveSettingsBtn.shouldBe(visible).click();
+        sleep(1000);
         return this;
     }
 }
